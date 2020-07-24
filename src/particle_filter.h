@@ -102,6 +102,11 @@ class ParticleFilter {
     return is_initialized;
   }
 
+  double multiv_prob(double sig_x, double sig_y, double x_obs, double y_obs,
+                   double mu_x, double mu_y);
+
+  std::vector<double> mapTransform(double xp, double yp, double xc, double yc, double theta);
+
   /**
    * Used for obtaining debugging information related to particles.
    */
@@ -120,6 +125,9 @@ class ParticleFilter {
   
   // Vector of weights of all particles
   std::vector<double> weights; 
+
+  std::vector<double> gaussians(double x, double y, double theta, double std[]);
+
 };
 
 #endif  // PARTICLE_FILTER_H_
